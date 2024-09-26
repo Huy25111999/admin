@@ -1,0 +1,24 @@
+<div class="app-header">
+    <div class="header-right">
+      <div nz-dropdown class="float-end avatar" [nzDropdownMenu]="menu" nzPopoverPlacement="bottomLeft"
+          nzTrigger="click">
+        <nz-avatar [nzSize]="48" nzSrc="//zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
+        <span class="avatar-name">admin</span>
+      </div>
+    </div>
+  </div>
+  
+  <nz-dropdown-menu #menu="nzDropdownMenu">
+    <div nz-menu style="width: auto; height: auto">
+      <div class="mx-auto" style="padding: 0 16px;">
+        <button class="btn btn-primary d-flex mx-auto" >
+          <span class="text-center mx-auto">Profile</span>
+        </button>
+      </div>
+      <div class="mt-2">
+        <button class="btn btn-primary d-flex mx-auto" (click)="logout()">
+          <span class="text-center mx-auto">Logout</span>
+        </button>
+      </div>
+    </div>
+  </nz-dropdown-menu>

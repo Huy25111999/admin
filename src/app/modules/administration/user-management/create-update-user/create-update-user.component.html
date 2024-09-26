@@ -1,0 +1,126 @@
+<abp-modal [(visible)]="isModalOpen" class="">
+    <ng-template #abpHeader>
+      <h3>Thêm mới user</h3>
+    </ng-template>
+  
+    <ng-template #abpBody>
+    <form
+      (ngSubmit)="onSubmitForm($event)"
+      nz-form
+      class="form-create-update"
+      [formGroup]="formData"
+      skipValidation
+    >
+      <div nz-col [nzSpan]="24">
+        <nz-form-item class="required-control">
+          <nz-form-label class="form-label" [nzSpan]="4" nzFor="product-name">
+            {{ "Tên người dùng" }}
+            <span class="required"> *</span>
+          </nz-form-label>
+          <nz-form-control [nzSpan]="20">
+            <input
+              trim="blur"
+              nz-input
+              formControlName="name"
+              vtAutofocus
+              nzSize="large"
+            />
+            <app-show-errors
+            [control]="formData.controls['name']"
+            controlName="Tên người dùng"
+          >
+          </app-show-errors>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item class="required-control">
+          <nz-form-label class="form-label" [nzSpan]="4" nzFor="product-name">
+            {{ "Số điện thoại"}}
+            <span class="required"> *</span>
+          </nz-form-label>
+          <nz-form-control [nzSpan]="20">
+            <input
+              trim="blur"
+              type="text"
+              maxlength="19"
+              nz-input
+              formControlName="phone"
+              nzSize="large"
+            />
+            <app-show-errors
+            [control]="formData.controls['phone']"
+            controlName="Số điện thoại"
+            [maxLength]="15"
+          >
+          </app-show-errors>
+          </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item class="required-control">
+          <nz-form-label class="form-label" [nzSpan]="4" nzFor="product-name">
+            {{ "Email"}}
+            <span class="required text-red"> *</span>
+          </nz-form-label>
+          <nz-form-control [nzSpan]="20">
+            <input
+              trim="blur"
+              type="text"
+              maxlength="19"
+              nz-input
+              formControlName="email"
+              nzSize="large"
+            />
+            <app-show-errors
+            [control]="formData.controls['email']"
+            controlName="Email"
+          >
+          </app-show-errors>
+          </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item>
+          <nz-form-label class="form-label" [nzSpan]="4" nzFor="product-name">
+            {{ "Địa chỉ"}}
+          </nz-form-label>
+          <nz-form-control [nzSpan]="20">
+            <textarea
+              rows="3"
+              maxlength="8000"
+              trim="blur"
+              nz-input
+              formControlName="address"
+              nzSize="large"
+            ></textarea>
+          </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item>
+          <nz-form-label class="form-label" [nzSpan]="4" nzFor="product-name">
+            {{ "Trạng thái"}}
+          </nz-form-label>
+          <nz-form-control [nzSpan]="20">
+            <nz-select formControlName="status"
+            nzPlaceHolder="Trạng thái"
+            nzServerSearch
+            nzSize="large"
+            >
+                <nz-option *ngFor="let type of listStatus" [nzValue]="type.value"
+                    [nzLabel]="type.name"></nz-option>
+            </nz-select>
+            <app-show-errors
+            [control]="formData.controls['status']"
+            controlName="Trạng thái"
+          >
+          </app-show-errors>
+        
+          </nz-form-control>
+        </nz-form-item>
+
+      </div>
+    </form>
+    </ng-template>
+  
+    <ng-template #abpFooter>
+      <button type="button" class="btn btn-secondary" (click)="onClose()">Close</button>
+    </ng-template>
+  </abp-modal>
+

@@ -1,0 +1,18 @@
+<nz-pagination
+  [hidden]="totalRows <= 10"
+  class="vt-pagination d-flex justify-content-end"
+  [nzPageIndex]="page"
+  [nzPageSize]="pageSize"
+  [nzTotal]="totalRows"
+  [nzSize]="'small'"
+  [nzShowTotal]="totalTemplate"
+  [nzPageSizeOptions]="pageSizeOptions"
+  nzShowSizeChanger
+  nzShowQuickJumper
+  (nzPageIndexChange)="onPageIndexChange($event)"
+  (nzPageSizeChange)="onPageSizeChange($event)"
+>
+</nz-pagination>
+<ng-template #totalTemplate let-total>
+  <span> {{ fromRecord }} - {{ toRecord }} trong {{ total }} </span>
+</ng-template>
